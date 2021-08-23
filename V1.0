@@ -1,5 +1,4 @@
 import os
-from pathlib import Path
 from distutils.dir_util import copy_tree
 
 def file_uploader(origin_file_path, destination_file_path):
