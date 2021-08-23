@@ -1,0 +1,24 @@
+import os
+from pathlib import Path
+from distutils.dir_util import copy_tree
+
+def file_uploader(origin_file_path, destination_file_path):
+    upload_file_list = []
+    #list the items in the source and destination path
+    dest_file_list = os.listdir(destination_file_path)
+    origin_file_list = os.listdir(origin_file_path)
+    #create the upload list by checking if the item isn't in the destination and is a directory
+    for item in origin_file_list:
+        path = origin + '/' + item
+        if os.path.isdir(path) == False:
+            pass
+        elif item in dest_file_list:
+            pass
+        else:
+            upload_file_list.append(item)
+    #Make a new directory for wach item in the upload list them copy the contents to it
+    for file in upload_file_list:
+        source_path = origin + '/' + file
+        dest_path = destination + '/' + file
+        new_dir = os.mkdir(dest_path)
+        copy_tree(source_path, dest_path)
